@@ -1,0 +1,42 @@
+{
+  "name": "org.aerogear.pushhelloworld",
+  "displayName": "UpsHelloWorld",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aerogear/cordova-plugin-aerogear-push": "^3.0.0",
+    "@aerogear/push": "^3.0.0",
+    "cordova-android": "^8.1.0",
+    "cordova-ios": "^5.1.1",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-webpack": "^0.4.7",
+    "cordova-support-google-services": "^1.3.2",
+    "phonegap-plugin-multidex": "^1.0.0",
+    "phonegap-plugin-push": "^2.3.0"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "@aerogear/cordova-plugin-aerogear-push": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-webpack": {},
+      "cordova-plugin-aerogear-push": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}
