@@ -35,8 +35,8 @@
       "cordova-plugin-aerogear-push": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
