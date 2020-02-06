@@ -1,14 +1,15 @@
 import React from 'react';
-import "@patternfly/react-core/dist/styles/base.css";
+import '@patternfly/react-core/dist/styles/base.css';
 
-import { Notifications } from "./Notifications";
+import { Notifications } from './Notifications';
 
-const App = () => {
+/* tslint:disable */
+export const App = () => {
   return (
     <div className="App">
-      <Notifications/>
+      <Notifications />
     </div>
   );
-}
+};
 
 export default App;
