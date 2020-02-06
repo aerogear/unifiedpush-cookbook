@@ -101,6 +101,7 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
       <React.Fragment>
         <Modal
           isSmall
+          showClose={false}
           title="Configure UPS Connection"
           isOpen={this.props.open}
           //onClose={this.toggle}
