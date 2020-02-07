@@ -1,62 +1,36 @@
 import React from 'react';
 import { Component } from 'react';
 import { Modal, Button } from '@patternfly/react-core';
-import {
-  Form,
-  FormGroup,
-  TextInput,
-  TextArea,
-  FormSelect,
-  Checkbox,
-  ActionGroup,
-  Radio,
-} from '@patternfly/react-core';
+import { Form, FormGroup, TextInput } from '@patternfly/react-core';
 
 import { PushInitConfig } from '@aerogear/push';
 import { Data, Validator } from 'json-data-validator';
 import { EvaluationResult } from 'json-data-validator/src/Rule';
 
-const formValidationRules = {
-  ruleSets: [
-    {
-      fields: {
-        url: [
-          {
-            type: 'VALID_URL',
-          },
-          {
-            type: 'REQUIRED',
-          },
-        ],
-        'webpush.variantID': [
-          {
-            type: 'isUUID',
-          },
-          {
-            type: 'REQUIRED',
-          },
-        ],
-        'webpush.variantSecret': [
-          {
-            type: 'isUUID',
-          },
-          {
-            type: 'REQUIRED',
-          },
-        ],
-        'webpush.appServerKey': [
-          {
-            type: 'REQUIRED',
-          },
-        ],
-      },
-    },
-  ],
-};
+import {
+  inplaceFormvalidationRules,
+  formValidationRules,
+} from './validationRules';
 
+/**
+ * The properties accepted by this component
+ */
 interface ConfigureProps {
+  /**
+   * Whether the window is visible or not
+   */
   open: boolean;
+
+  /**
+   * The configuration to be edited
+   */
   config?: PushInitConfig;
+
+  /**
+   * The function to be called with the new configuration
+   * @param config The new configuration
+   * @param cancel Whether the cancel button was pressed or not
+   */
   callback: (config: PushInitConfig, cancel?: boolean) => void;
 }
 
@@ -64,13 +38,22 @@ interface ConfigureState {
   validationResult: EvaluationResult;
 }
 
+/**
+ * This component is the 'configuration' modal window.
+ */
 export class Configure extends Component<ConfigureProps, ConfigureState> {
-  private readonly config: PushInitConfig;
+  private config: PushInitConfig = {} as PushInitConfig;
 
   constructor(props: ConfigureProps) {
     super(props);
-    this.config = props.config || ({} as PushInitConfig);
+    this.resetConfig();
     this.state = { validationResult: { valid: true } };
+  }
+
+  private resetConfig() {
+    this.config = this.props.config
+      ? { ...this.props.config }
+      : ({} as PushInitConfig);
     if (!this.config.webpush) {
       this.config.webpush = {
         variantID: '',
@@ -79,21 +62,26 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
     }
   }
 
+  shouldComponentUpdate(nextProps: Readonly<ConfigureProps>): boolean {
+    if (nextProps.open !== this.props.open && nextProps.open) {
+      this.resetConfig();
+    }
+    return true;
+  }
+
   private confirm = (cancel: boolean) => {
+    if (!(cancel || this.validate().valid)) {
+      return;
+    }
     this.props.callback(this.config, cancel);
   };
 
-  private validate(): void {
-    const validationResult = new Validator(formValidationRules).validate(
-      (this.config as unknown) as Data,
-      true
-    );
-    console.log('valid: ', validationResult);
+  private validate(inplace = true): EvaluationResult {
+    const validationResult = new Validator(
+      inplace ? inplaceFormvalidationRules : formValidationRules
+    ).validate((this.config as unknown) as Data, true);
     this.setState({ validationResult });
-  }
-
-  componentDidMount(): void {
-    this.validate();
+    return validationResult;
   }
 
   render() {
@@ -104,7 +92,6 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
           showClose={false}
           title="Configure UPS Connection"
           isOpen={this.props.open}
-          //onClose={this.toggle}
           actions={[
             <Button
               key="confirm"
@@ -142,7 +129,7 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
                 isRequired
                 type="url"
                 id="ups-url"
-                value={this.props.config?.url}
+                value={this.config?.url}
                 onChange={value => {
                   this.config.url = value;
                   this.validate();
@@ -169,7 +156,7 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
                 isRequired
                 type="text"
                 id="variant-id"
-                value={this.props.config?.webpush?.variantID}
+                value={this.config?.webpush?.variantID}
                 onChange={value => {
                   this.config.webpush!.variantID = value;
                   this.validate();
@@ -196,7 +183,7 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
                 isRequired
                 type="text"
                 id="variant-secret"
-                value={this.props.config?.webpush?.variantSecret}
+                value={this.config?.webpush?.variantSecret}
                 onChange={value => {
                   this.config.webpush!.variantSecret = value;
                   this.validate();
@@ -223,7 +210,7 @@ export class Configure extends Component<ConfigureProps, ConfigureState> {
                 isRequired
                 type="text"
                 id="app-server-key"
-                value={this.props.config?.webpush?.appServerKey}
+                value={this.config?.webpush?.appServerKey}
                 onChange={value => {
                   this.config.webpush!.appServerKey = value;
                   this.validate();

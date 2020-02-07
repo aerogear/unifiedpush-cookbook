@@ -54,8 +54,12 @@ export class Notifications extends Component<{}, NotificationsState> {
 
     this.state = {
       registrationState: STATE.NOT_REGISTERED,
+      reconfig: true,
     };
 
+    /**
+     * Registers the callback to be called whenever a message is received
+     */
     PushRegistration.onMessageReceived(notification => {
       const notifications = this.state.notifications || ([] as Notification[]);
 
@@ -70,20 +74,23 @@ export class Notifications extends Component<{}, NotificationsState> {
     });
   }
 
+  /**
+   * Resister to the UPS
+   */
   private register = () => {
-    console.log('Registering...');
     new PushRegistration(this.state.config!)
       .register({ serviceWorker: 'aerogear-sw.js' })
       .then(() => {
-        console.log('Registered!');
         this.setState({ registrationState: STATE.REGISTERED });
       })
       .catch(error => {
         this.setState({ registrationState: STATE.ERROR, error: error.message });
-        console.log('Failed: ', error.message, JSON.stringify(error));
       });
   };
 
+  /**
+   * Unregister from UPS
+   */
   private unregister = () => {
     new PushRegistration(this.state.config!)
       .unregister()
@@ -242,11 +249,15 @@ export class Notifications extends Component<{}, NotificationsState> {
           </Table>
         </PageSection>
         <Configure
-          open={!this.state?.config || !!this.state?.reconfig}
+          open={!!this.state?.reconfig}
           config={this.state.config}
-          callback={(config: PushInitConfig) =>
-            this.setState({ config, reconfig: false })
-          }
+          callback={(config: PushInitConfig, cancel?: boolean) => {
+            if (!cancel) {
+              this.setState({ config, reconfig: false });
+            } else {
+              this.setState({ reconfig: false });
+            }
+          }}
         />
       </Page>
     );
