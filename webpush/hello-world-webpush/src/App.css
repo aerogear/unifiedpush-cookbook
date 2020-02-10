@@ -1,0 +1,18 @@
+.navbar-brand {
+  background-image: url(/logo.png);
+  background-repeat: no-repeat;
+  background-position: 15px top;
+  background-size: 112px 70px;
+  width: 127px;
+  height: 35px;
+  margin: 7px 15px 0 0;
+  text-indent: -99999px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  float: left;
+  padding: 14px 15px;
+  font-size: 20px;
+  line-height: 22px;
+}
