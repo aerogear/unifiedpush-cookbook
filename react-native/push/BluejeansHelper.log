@@ -1,0 +1,4 @@
+2020/04/08 10:27:45 Starting BluejeansHelper ..
+2020/04/08 10:27:45 created app watch channel  0xc42011a180
+2020/04/08 10:27:45 Error starting BluejeansHelper!
+2020/04/08 10:27:45 ListenAndServe: listen tcp 127.0.0.1:18171: bind: address already in use
