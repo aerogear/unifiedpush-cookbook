@@ -1,3 +1,9 @@
 rootProject.name = 'push'
+include ':@aerogear_aerogear-reactnative-push'
+project(':@aerogear_aerogear-reactnative-push').projectDir = new File(rootProject.projectDir, '../node_modules/@aerogear/aerogear-reactnative-push/android')
+include ':@aerogear_aerogear-reactnative-push'
+project(':@aerogear_aerogear-reactnative-push').projectDir = new File(rootProject.projectDir, '../node_modules/@aerogear/aerogear-reactnative-push/android')
+include ':@aerogear_aerogear-reactnative-push'
+project(':@aerogear_aerogear-reactnative-push').projectDir = new File(rootProject.projectDir, '../node_modules/@aerogear/aerogear-reactnative-push/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

@@ -1,8 +1,8 @@
 {
-  "pushServerURL": "pushServerURL (e.g http(s)//host:port/context)",
+  "pushServerURL": "http://10.0.2.2:9999/",
   "android": {
-    "senderID": "senderID (e.g Google Project ID only for android)",
-    "variantID": "variantID (e.g. 1234456-234320)",
-    "variantSecret": "variantSecret (e.g. 1234456-234320)"
+    "senderID": "294932137806",
+    "variantID": "53f032be-d2cf-45b6-8f67-7c70791951b1",
+    "variantSecret": "47e14e00-4ba0-4e81-b57a-eabe57ea421e"
   }
 }
