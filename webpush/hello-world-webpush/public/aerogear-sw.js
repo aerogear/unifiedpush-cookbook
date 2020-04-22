@@ -7,7 +7,7 @@ self.addEventListener('push', event => {
   event.waitUntil(
     self.clients.matchAll().then(clientList => {
       if (clientList.length === 0) {
-        return self.registration.showNotification(data);
+        return self.registration.showNotification(event.data);
       } else {
         clientList.forEach(client => {
           client.postMessage(event.data.text(), [msg_chan.port2]);
