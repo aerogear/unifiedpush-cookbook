@@ -1,87 +1,89 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View ,NativeEventEmitter,NativeModules} from 'react-native';
 import RnUnifiedPush from '@aerogear/aerogear-reactnative-push';
 
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+export default class App extends Component<{}> {
+  state = {
+    status: 'starting',
+    message: '--'
+  };
+  componentDidMount() {
+    RnUnifiedPush.init(
+      { 
+        alias: 'rn' ,
+        url: 'http://10.0.2.2:9999/',
+        senderId: '294932137806',
+        variantId: 'b683ddeb-dc54-41e9-999c-68da4e95ff4b',
+        secret: '4aed76dd-61ca-497a-a746-c99555ec5b73'
+      },
+      () => {
+        console.log("Yay!")
+        this.setState({
+          status: 'registered',
+          message: 'registered'
+        })
+      },
+      (err) => {
+        console.log(err)
+        this.setState({
+          status: 'error',
+          message: 'error'
+        })
+      });
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+      RnUnifiedPush.registerMessageHandler((message)=>{
+        console.log("You have receieved a push message." + JSON.stringify(message));
+          this.setState({
+            status: 'receieved',
+            message: JSON.stringify(message)
+          })
+      });
+
+      const eventEmitter = new NativeEventEmitter(NativeModules.RnUnifiedPush);
+
+      this.eventListener = eventEmitter.addListener('onDefaultMessage', (event) => {
+          console.log("You have receieved a push message." + JSON.stringify(event));
+          this.setState({
+            status: 'registered',
+            message: JSON.stringify(event)
+          })
+       });
+
+  }
+
 
   
-  RnUnifiedPush.init(
-    { 
-      alias: 'rn' ,
-      url: 'http://10.0.2.2:9999/',
-      senderId: '294932137806',
-      variantId: 'b683ddeb-dc54-41e9-999c-68da4e95ff4b',
-      secret: '777338bf-15a2-4cc2-993c-37b33e4287e1'
-    },
-    () => {
-      console.log("Success")
-    },
-    (err) => {
-      console.log(err)
-    });
+  render() {
 
-  return (
-   
-     <Text>
-     Hello World
-     </Text>
-   
-  );
-};
+
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>☆RnUnifiedPush example☆</Text>
+        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
+        <Text style={styles.instructions}>{this.state.message}</Text>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
-
-export default App;
