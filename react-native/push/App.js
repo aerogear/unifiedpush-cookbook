@@ -12,7 +12,7 @@ export default class App extends Component {
   
   constructor(props) {
     super(props);
-    this.state={registered:false, showSplash:true, messages:["test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2","test","Test2"]};
+    this.state={registered:false, showSplash:true, messages:[]};
 
     this.theme = {
       ...DefaultTheme,

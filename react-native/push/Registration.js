@@ -15,7 +15,7 @@ export default class Registration extends Component {
 
     RnUnifiedPush.init(
             { 
-              alias: 'rn' ,
+              alias: 'rn2' ,
               url: 'http://10.0.2.2:9999/',
               senderId: '294932137806',
               variantId: 'b6c16daa-2cd0-4544-9360-2c60fd9227e6',
