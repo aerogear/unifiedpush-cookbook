@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, NativeEventEmitter, NativeModules } from 'react-native';
 import RnUnifiedPush from '@aerogear/aerogear-reactnative-push';
 import { Banner } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/FontAwesome';
+//import Icon from 'react-native-vector-icons/FontAwesome';
 import { FlatList } from 'react-native-gesture-handler';
 
 export default class Notifications extends Component {
@@ -36,7 +36,7 @@ export default class Notifications extends Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }} >
-                    <Icon name="bell-slash" size={30} style={{ paddingBottom: 10 }} />
+                    
                     <Text>Nothing here yet!</Text>
                     <Text>Send notifications from the console</Text>
                 </View>

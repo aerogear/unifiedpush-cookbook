@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { ProgressBar, Colors } from 'react-native-paper';
 
 import { Image, View, NativeEventEmitter, NativeModules, Text } from 'react-native';
-import RnUnifiedPush from '@aerogear/aerogear-reactnative-push';
+import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
+
+const ups = new RNUnifiedPush();
 
 export default class Registration extends Component {
 
@@ -13,20 +15,19 @@ export default class Registration extends Component {
 
   render() {
 
-    RnUnifiedPush.init(
+    ups.init(
             { 
-              alias: 'rn2' ,
-              url: 'http://10.0.2.2:9999/',
-              senderId: '294932137806',
-              variantId: 'b6c16daa-2cd0-4544-9360-2c60fd9227e6',
-              secret: 'e8d019ca-c9f5-497a-89ac-9cd37892613f'
+              alias: 'reactNative' ,
+              url: 'http://10.1.10.51:9999/',
+              variantId: '91c039f9-d657-49cd-b507-cb78bea786e3',
+              secret: '4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd'
             },
             () => {
               console.log("Yay!")
               if(this.onRegister)this.onRegister(); 
             },
             (err) => {
-              console.log(err)
+              console.log("Err", err)
             });
 
     return (//`require('./path/to/image.png')`

@@ -2,10 +2,8 @@
 # yarn lockfile v1
 
 
-"@aerogear/aerogear-reactnative-push@^0.0.3@master.8":
+"@aerogear/aerogear-reactnative-push@file:../../../aerogear-reactnative-push":
   version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@aerogear/aerogear-reactnative-push/-/aerogear-reactnative-push-0.0.3.tgz#9cbb0d98c6876fb48538abf57bacd43c9068ea45"
-  integrity sha512-c6H+KFmHOMxuAp0NXLVVf0NTsAh2kR+spAwkL7cb8PK7lgHX24dGsNQHSd+sV4X8x2O9A1YPRCerkShgdAsaFQ==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"

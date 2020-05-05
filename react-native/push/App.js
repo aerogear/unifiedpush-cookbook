@@ -5,8 +5,10 @@ import Splash from './Splash';
 import Registration from './Registration';
 import { Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
 import { StatusBar, Text, NativeEventEmitter, NativeModules } from 'react-native';
-import RnUnifiedPush from '@aerogear/aerogear-reactnative-push';
 
+import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
+
+const ups = new RNUnifiedPush();
 
 export default class App extends Component {
   
@@ -22,25 +24,18 @@ export default class App extends Component {
 
       },
     };
-
-
-    this.eventEmitter = new NativeEventEmitter(NativeModules.RnUnifiedPush);
-
-  }
-
-  componentDidMount() {
-    setTimeout(()=>{this.setState({...this.state, showSplash:false})}, 3000)
     let callback = (message)=>{
       console.log("You have receieved a push message." + JSON.stringify(message));
       this.setState({
         ...this.state,
         messages:[...this.state.messages, message]
       });
-      RnUnifiedPush.registerMessageHandler(callback);
     };
+    ups.registerMessageHandler(callback);
+  }
 
-    RnUnifiedPush.registerMessageHandler(callback);
-
+  componentDidMount() {
+    setTimeout(()=>{this.setState({...this.state, showSplash:false})}, 3000)
   }
   
   render() {
