@@ -17,7 +17,7 @@ export default class Registration extends Component {
 
     ups.init(
             { 
-              pushServerURL: "http://10.0.2.2:9999/",
+              pushServerURL: "http://10.1.10.51:9999/",
               ios_token: {
                 variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
                 variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"

@@ -10,9 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@aerogear/aerogear-reactnative-push": "/home/summerspittman/Projects/aerogear/@aerogear/aerogear-reactnative-push",
-    "@patternfly/react-core": "^3.153.3",
-    "@patternfly/react-table": "^2.25.6",
+    "@aerogear/aerogear-reactnative-push": "/Users/summerspittman/Projects/aerogear-reactnative-push",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.1.6",
     "@react-navigation/stack": "^5.2.13",
