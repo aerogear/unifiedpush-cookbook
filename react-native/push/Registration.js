@@ -17,25 +17,26 @@ export default class Registration extends Component {
 
     ups.init(
             { 
-              pushServerURL: "http://localhost:9999/",
+              pushServerURL: "http://10.0.2.2:9999/",
               ios_token: {
                 variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
                 variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
               }, 
               android: {
-                variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
-                variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
+                senderID: "294932137806",
+                variantID: "8cc5d313-acf5-432f-9d01-b1ffab0e63e2",
+                variantSecret: "5b87574e-e713-4468-bb15-8664b8877899"
               }
-            },
+            }).then(
             () => {
               console.log("Yay!")
               if(this.onRegister)this.onRegister(); 
-            },
+            }).catch(
             (err) => {
               console.log("Err", err)
             });
 
-    return (//`require('./path/to/image.png')`
+    return (
 
       <View style={{
         backgroundColor: 'white',
