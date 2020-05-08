@@ -29,7 +29,11 @@ export default class Registration extends Component {
               }
             }).then(
             () => {
-              console.log("Yay!")
+              return ups.register({
+                "alias":"testRNAlias",
+                "categories":["cat1", "cat2"]
+              })
+            }).then(()=>{
               if(this.onRegister)this.onRegister(); 
             }).catch(
             (err) => {

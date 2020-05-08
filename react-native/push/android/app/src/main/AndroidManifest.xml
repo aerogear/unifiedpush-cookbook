@@ -14,7 +14,7 @@
 
         <meta-data android:name="DEFAULT_MESSAGE_HANDLER_KEY"
             android:value="org.aerogear.unifiedpush.android.ReactNativeMessageHandler" />
-        
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
