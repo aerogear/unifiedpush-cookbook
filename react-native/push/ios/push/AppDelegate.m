@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import <UserNotifications/UserNotifications.h>
+#import <RnUnifiedPush/RnUnifiedPush.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -12,7 +13,7 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
-#import <RnUnifiedPush/RnUnifiedPush.h>
+
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
