@@ -18,7 +18,7 @@ export default class Registration extends Component {
     ups.init(
             { 
               pushServerURL: "http://10.1.10.51:9999/",
-              ios_token: {
+              ios: {
                 variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
                 variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
               }, 
@@ -30,14 +30,14 @@ export default class Registration extends Component {
             }).then(
             () => {
               return ups.register({
-                "alias":"testRNAlias",
+                "alias":"testRNAlia5!",
                 "categories":["cat1", "cat2"]
               })
             }).then(()=>{
               if(this.onRegister)this.onRegister(); 
             }).catch(
             (err) => {
-              console.log("Err", err)
+              console.log("Err 2", err)
             });
 
     return (

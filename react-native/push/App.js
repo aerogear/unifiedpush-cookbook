@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 import Splash from './Splash';
 import Registration from './Registration';
 import { Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
-import { StatusBar, Text, NativeEventEmitter, NativeModules } from 'react-native';
+import { StatusBar } from 'react-native';
 
 import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
 
@@ -40,7 +40,11 @@ export default class App extends Component {
     setTimeout(()=>{this.setState({...this.state, showSplash:false})}, 3000)
   }
   
-  render() {
+componentWillUnmount() {
+  this.setState({registered:false, showSplash:true, messages:[]})
+}
+
+  render() {try {
     let screen = null;
     if (this.state.showSplash) {
       screen = <Splash />;
@@ -63,6 +67,10 @@ export default class App extends Component {
       <StatusBar backgroundColor="orange"/>
     </PaperProvider>
 
+  } catch (ignore) {
+    console.log(ignore);
+    return <Splash/>
   }
+}
 }
 
