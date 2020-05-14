@@ -17,20 +17,20 @@ export default class Registration extends Component {
 
     ups.init(
             { 
-              pushServerURL: "http://10.1.10.51:9999/",
+              pushServerURL: "http://10.1.10.80:9999/",
               ios: {
                 variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
                 variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
               }, 
               android: {
-                senderID: "294932137806",
-                variantID: "8cc5d313-acf5-432f-9d01-b1ffab0e63e2",
-                variantSecret: "5b87574e-e713-4468-bb15-8664b8877899"
+                senderID: "557802659713",
+                variantID: "77fc90fa-6c79-4ed7-a699-36861b0d309e",
+                variantSecret: "0625eca0-3b76-4614-bdc6-2d40da6195e4"
               }
             }).then(
             () => {
               return ups.register({
-                "alias":"testRNAlia5!",
+                "alias":"summersgetserious",
                 "categories":["cat1", "cat2"]
               })
             }).then(()=>{

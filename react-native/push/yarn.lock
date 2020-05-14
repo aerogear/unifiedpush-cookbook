@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@aerogear/aerogear-reactnative-push@file:../../../aerogear-reactnative-push":
+"@aerogear/aerogear-reactnative-push@file:../../../@aerogear/aerogear-reactnative-push":
   version "0.0.3"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
