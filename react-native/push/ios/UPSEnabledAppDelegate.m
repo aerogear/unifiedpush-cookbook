@@ -1,4 +1,11 @@
-#import "AppDelegate.h"
+//
+//  UPSEnabledAppDelegate.m
+//  push
+//
+//  Created by Massimiliano Ziccardi on 14/05/2020.
+//
+
+#import "UPSEnabledAppDelegate.h"
 #import <UserNotifications/UserNotifications.h>
 #import <RnUnifiedPush/RnUnifiedPush.h>
 
@@ -26,7 +33,7 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
-@implementation AppDelegate
+@implementation UPSEnabledAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -49,9 +56,23 @@ static void InitializeFlipper(UIApplication *application) {
   
   
   // Enable Push Notifications
-  [super application:application didFinishLaunchingWithOptions:launchOptions];
+  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+  [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionBadge + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    
+  }];
+  [[UIApplication sharedApplication] registerForRemoteNotifications];
   
   return YES;
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  [RnUnifiedPush didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+  NSLog(@"Received push %@",userInfo);
+  [RnUnifiedPush didReceiveRemoteNotification:userInfo];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

@@ -303,7 +303,7 @@ PODS:
     - React
   - RNScreens (2.7.0):
     - React
-  - RnUnifiedPush (0.0.3):
+  - RnUnifiedPush (0.0.5):
     - AeroGearPush-ObjC
     - React
   - RNVectorIcons (6.6.0):
@@ -478,7 +478,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
   RNScreens: cf198f915f8a2bf163de94ca9f5bfc8d326c3706
-  RnUnifiedPush: 3f6ccd1fa2b5054dc2052f965765130a76735384
+  RnUnifiedPush: 7b0579dbad462243e14897e29db8cc223142f225
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
