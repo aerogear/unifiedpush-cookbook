@@ -9,6 +9,11 @@ import { StatusBar } from 'react-native';
 import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
 
 const ups = new RNUnifiedPush();
+let callback = (message)=>{
+  console.log("You have receieved a background push message." + JSON.stringify(message));
+};
+
+ups.registerMessageHandler(callback);
 
 export default class App extends Component {
   
@@ -24,7 +29,6 @@ export default class App extends Component {
 
       },
     };
-    
     let callback = (message)=>{
       console.log("You have receieved a push message." + JSON.stringify(message));
       this.setState({
@@ -32,8 +36,9 @@ export default class App extends Component {
         messages:[...this.state.messages, message]
       });
     };
+    
+    ups.registerMessageHandler(callback);    
 
-    ups.registerMessageHandler(callback);
   }
 
   componentDidMount() {
