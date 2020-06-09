@@ -5,7 +5,6 @@ import Splash from './Splash';
 import Registration from './Registration';
 import { Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
 import { StatusBar } from 'react-native';
-
 import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
 
 const ups = new RNUnifiedPush();
