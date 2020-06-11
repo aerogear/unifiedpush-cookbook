@@ -17,16 +17,16 @@ export default class Registration extends Component {
 
     ups.init(
             { 
-              pushServerURL: "http://10.1.10.80:9999/",
+              pushServerURL: "http://10.1.10.51:9999/",
               ios: {
                 variantID: "91c039f9-d657-49cd-b507-cb78bea786e3",
                 variantSecret: "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
               }, 
               android: {
-                senderID: "557802659713",
-                variantID: "77fc90fa-6c79-4ed7-a699-36861b0d309e",
-                variantSecret: "0625eca0-3b76-4614-bdc6-2d40da6195e4"
-              }
+	             senderID: "557802659713",
+		    variantID: "c046f7b6-cf86-4ae6-9eb0-bb39104ea38b",
+		    variantSecret: "4907e063-cd39-477f-8938-2d817eabff97"
+             }
             }).then(
             () => {
               return ups.register({
