@@ -6,13 +6,10 @@ import Registration from './Registration';
 import { Provider as PaperProvider, Appbar, DefaultTheme } from 'react-native-paper';
 import { StatusBar } from 'react-native';
 import RNUnifiedPush from '@aerogear/aerogear-reactnative-push';
+import handler from './handler';
 
 const ups = new RNUnifiedPush();
-let callback = (message)=>{
-  console.log("You have receieved a background push message." + JSON.stringify(message));
-};
-
-ups.registerMessageHandler(callback);
+ups.registerMessageHandler((message) => console.log("You have receieved a background push message." + JSON.stringify(message)));
 
 export default class App extends Component {
   
@@ -28,12 +25,13 @@ export default class App extends Component {
 
       },
     };
-       ups.registerMessageHandler(message => this.setState({messages: [...this.state.messages, message] });    
+       
+    ups.registerMessageHandler(handler.bind(this));    
 
   }
 
   componentDidMount() {
-    setTimeout(()=>{this.setState({...this.state, showSplash:false})}, 3000)
+    setTimeout(()=>{this.setState({showSplash:false})}, 3000)
   }
   
 componentWillUnmount() {
