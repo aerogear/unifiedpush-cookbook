@@ -28,15 +28,7 @@ export default class App extends Component {
 
       },
     };
-    let callback = (message)=>{
-      console.log("You have receieved a push message." + JSON.stringify(message));
-      this.setState({
-        ...this.state,
-        messages:[...this.state.messages, message]
-      });
-    };
-    
-    ups.registerMessageHandler(callback);    
+       ups.registerMessageHandler(message => this.setState({messages: [...this.state.messages, message] });    
 
   }
 
@@ -77,4 +69,3 @@ componentWillUnmount() {
   }
 }
 }
-

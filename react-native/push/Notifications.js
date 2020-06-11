@@ -57,7 +57,7 @@ export default class Notifications extends Component {
                 <FlatList
                           ItemSeparatorComponent = { this.FlatListItemSeparator }
                     style={{width:"100%"}}
-                    data={this.props.messages.map((item)=>{return {key:item.aps?item.aps.alert.body:item.alert}})}
+                    data={this.props.messages.map((item)=> ({key:item.aps?item.aps.alert.body:item.alert})  )}
                     renderItem={({ item }) => <Text style={{fontSize:14, paddingBottom:20, paddingTop:20, paddingLeft:16, paddingRight:16, alignContent:"flex-start"}} >{item.key}</Text>}
                 />
             </View>
