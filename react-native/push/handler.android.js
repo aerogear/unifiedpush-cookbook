@@ -1,0 +1,1 @@
+export default function(message) { this.setState({messages: [...this.state.messages, message.alert] })}
