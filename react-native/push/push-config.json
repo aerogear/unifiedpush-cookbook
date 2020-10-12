@@ -1,0 +1,12 @@
+{
+  "pushServerURL": "http://10.0.2.2:9999/",
+  "ios": {
+    "variantID": "91c039f9-d657-49cd-b507-cb78bea786e3",
+    "variantSecret": "4b7fd0b4-58b5-46e8-80ef-08a6b8d449cd"
+  },
+  "android": {
+    "senderID": "557802659713",
+    "variantID": "c046f7b6-cf86-4ae6-9eb0-bb39104ea38b",
+    "variantSecret": "4907e063-cd39-477f-8938-2d817eabff97"
+  }
+}
