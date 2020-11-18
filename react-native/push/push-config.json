@@ -1,0 +1,12 @@
+{
+  "pushServerURL": "{YOUR UPS SERVER URL}",
+  "ios": {
+    "variantID": "{YOUR IOS VARIANT ID}",
+    "variantSecret": "{YOUR IOS VARIANT SECRET}"
+  },
+  "android": {
+    "senderID": "{YOUR SENDER ID}",
+    "variantID": "{YOUR ANDROID VARIANT ID}",
+    "variantSecret": "{YOUR ANDROID VARIANT SECRET}"
+  }
+}
