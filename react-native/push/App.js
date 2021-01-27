@@ -12,7 +12,7 @@ const ups = new RNUnifiedPush();
 ups.registerMessageHandler((message) => console.log("You have receieved a background push message." + JSON.stringify(message)));
 
 export default class App extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state={registered:false, showSplash:true, messages:[]};
@@ -25,15 +25,15 @@ export default class App extends Component {
 
       },
     };
-       
-    ups.registerMessageHandler(handler.bind(this));    
+
+    ups.registerMessageHandler(handler.bind(this));
 
   }
 
   componentDidMount() {
     setTimeout(()=>{this.setState({showSplash:false})}, 3000)
   }
-  
+
 componentWillUnmount() {
   this.setState({registered:false, showSplash:true, messages:[]})
 }
@@ -50,11 +50,12 @@ componentWillUnmount() {
 
 
     return <PaperProvider theme={this.theme}>
-      
+
       <Appbar.Header>
       <Appbar.Content
         color="white"
           title="UnifiedPush HelloWorld"
+        testID="HelloWorld"
         />
         </Appbar.Header>
       {screen}
