@@ -39,7 +39,7 @@ export default class Registration extends Component {
         alignItems: 'center'
       }} >
 
-        <Text style={{fontSize:20, fontWeight:"bold", flexShrink:1, paddingBottom:10}}>
+        <Text style={{fontSize:20, fontWeight:"bold", flexShrink:1, paddingBottom:10}} testID="registering">
           Registering
         </Text>
 

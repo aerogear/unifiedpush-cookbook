@@ -36,8 +36,8 @@ export default class Notifications extends Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }} >
-                    
-                    <Text>Nothing here yet!</Text>
+
+                    <Text testID="nothing">Nothing here yet!</Text>
                     <Text>Send notifications from the console</Text>
                 </View>
 
@@ -57,6 +57,7 @@ export default class Notifications extends Component {
                 <FlatList
                           ItemSeparatorComponent = { this.FlatListItemSeparator }
                     style={{width:"100%"}}
+                          testID="list"
                     data={this.props.messages.map((item)=> ({key:item})  )}
                     renderItem={({ item }) => <Text style={{fontSize:14, paddingBottom:20, paddingTop:20, paddingLeft:16, paddingRight:16, alignContent:"flex-start"}} >{item.key}</Text>}
                 />

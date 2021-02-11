@@ -15,23 +15,27 @@
     "@react-navigation/native": "^5.1.6",
     "@react-navigation/stack": "^5.2.13",
     "react": "16.11.0",
-    "react-native": "0.62.2",
-    "react-native-gesture-handler": "^1.6.1",
-    "react-native-paper": "^3.8.0",
-    "react-native-reanimated": "^1.8.0",
-    "react-native-safe-area-context": "^0.7.3",
-    "react-native-screens": "^2.6.0",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native": "0.63.3",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-paper": "^4.4.0",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.15.0",
+    "react-native-vector-icons": "^7.1.0",
+    "unifiedpush-node-sender": "^0.16.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.4.0",
+    "detox": "^17.11.2",
     "eslint": "^6.8.0",
-    "jest": "^25.4.0",
+    "jest": "^26.6.0",
+    "jest-circus": "^26.6.0",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "16.11.0",
+    "axios": "^0.21.0"
   },
   "jest": {
     "preset": "react-native"
