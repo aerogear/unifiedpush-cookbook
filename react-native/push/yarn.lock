@@ -2,8 +2,10 @@
 # yarn lockfile v1
 
 
-"@aerogear/aerogear-reactnative-push@file:../../../aerogear-reactnative-push":
-  version "0.1.0"
+"@aerogear/aerogear-reactnative-push@^0.2.0":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@aerogear/aerogear-reactnative-push/-/aerogear-reactnative-push-0.2.2.tgz#bbfeecdabef358be63f3ecc9dc7b0a5f4495aa0f"
+  integrity sha512-QP1wcmUv2nbPST/I6fwcgd161LYK97JYRDABX9iybuH4jeGt+W6H1OIzrccX6AP/fT4Xg5HP51aJ3d5Q5zVVYw==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.1":
   version "7.10.1"
@@ -4900,9 +4902,9 @@ nan@^2.12.1:
   integrity sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
 
 nanoid@^3.1.5, nanoid@^3.1.9:
-  version "3.1.9"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.9.tgz#1f148669c70bb2072dc5af0666e46edb6cd31fb2"
-  integrity sha512-fFiXlFo4Wkuei3i6w9SQI6yuzGRTGi8Z2zZKZpUxv/bQlBi4jtbVPBSNFZHQA9PNjofWqtIa8p+pnsc0kgZrhQ==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
+  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
